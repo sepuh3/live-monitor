@@ -1,0 +1,46 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Live System Monitor (Simulasi)</title>
+  <style>
+    body {
+      background: #111;
+      color: #0f0;
+      font-family: monospace;
+      padding: 20px;
+    }
+    h1 {
+      color: #0ff;
+    }
+    .monitor {
+      background: #000;
+      padding: 10px;
+      border: 1px solid #0f0;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Live System Monitor (Simulasi)</h1>
+  <div class="monitor">
+    <p id="cpu">CPU Usage: ...</p>
+    <p id="ram">RAM Usage: ...</p>
+    <p id="net">Network: ...</p>
+    <p id="temp">Temperature: ...</p>
+  </div>  <script>
+    function getRandom(min, max) {
+      return (Math.random() * (max - min) + min).toFixed(2);
+    }
+
+    function updateMonitor() {
+      document.getElementById("cpu").innerText = `CPU Usage: ${getRandom(10, 90)}%`;
+      document.getElementById("ram").innerText = `RAM Usage: ${getRandom(512, 8192)} MB`;
+      document.getElementById("net").innerText = `Network: ${getRandom(1, 100)} Mbps`;
+      document.getElementById("temp").innerText = `Temperature: ${getRandom(35, 80)} °C`;
+    }
+
+    setInterval(updateMonitor, 1000);
+    updateMonitor();
+  </script></body>
+</html>
